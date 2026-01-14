@@ -1,0 +1,8 @@
+export enum BusinessErrorCode {
+  GENERIC_ERROR = 'GEN-000',
+  UNAUTHORIZED = 'AUTH-001',
+  FORBIDDEN = 'AUTH-003',
+  NOT_FOUND = 'RES-404',
+  VALIDATION_ERROR = 'VAL-400',
+  INTERNAL_ERROR = 'SYS-500',
+}
