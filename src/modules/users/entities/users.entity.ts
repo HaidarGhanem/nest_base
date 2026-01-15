@@ -1,9 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
+import { BaseEntity } from 'src/shared/entities/base.entity';
+import { Entity, Column } from 'typeorm';
 
 @Entity('users') 
-export class User {
-  @PrimaryGeneratedColumn('uuid')
-  id: string;
+export class User extends BaseEntity {
 
   @Column({ unique: true })
   email: string;
@@ -17,6 +16,4 @@ export class User {
   @Column({ default: true })
   isActive: boolean;
 
-  @CreateDateColumn()
-  createdAt: Date;
 }
