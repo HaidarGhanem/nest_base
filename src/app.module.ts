@@ -4,7 +4,8 @@ import { AuthModule } from './modules/auth/auth.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import databaseConfig from './config/database.config';
-import { RouterModule } from '@nestjs/core';
+import { APP_GUARD, RouterModule } from '@nestjs/core';
+import { xAuthGuard } from './common/guards/xAuth.guard';
 
 @Module({
   imports: [
@@ -32,6 +33,12 @@ import { RouterModule } from '@nestjs/core';
         ],
       }
     ])
+  ],
+  providers: [
+    {
+      provide: APP_GUARD,
+      useClass: xAuthGuard
+    }
   ]
 })
 export class AppModule {}
